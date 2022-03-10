@@ -1,13 +1,10 @@
 import "./App.css";
-import Artists from "./Components/Artists";
-import Login from "./Components/Login";
+import Products from "./Components/Products";
 
 function App() {
   return (
     <div className="App">
-      <Artists />
-      <p>Hello, this is a github workshop</p>
-      <Login />
+      <Products />
     </div>
   );
 }
