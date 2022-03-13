@@ -51,7 +51,8 @@ export default function Products() {
               <div>
                 <h5>{item.name}</h5>
                 <p>{item.price}</p>
-                <img src={`${"./image/" + item.image}`} />
+                <p>{item.status}</p>
+                <img src={`${"./image/" + item.thumb}`} alt="product-img" />
                 <button onClick={() => getSingle(item._id)}>
                   Read More...
                 </button>
