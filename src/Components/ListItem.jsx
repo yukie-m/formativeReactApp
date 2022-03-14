@@ -9,7 +9,6 @@ const formStyle = {
   gap: "1rem",
   width: "90%",
   margin: "auto",
-  padding: "0.5rem",
 };
 
 function ListItem() {
