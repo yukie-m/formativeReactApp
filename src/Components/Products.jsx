@@ -43,19 +43,24 @@ export default function Products() {
   }, []);
 
   return (
-    <>
-      <div className="wrap">
+    <div className="container">
+      <h2>New Items</h2>
+      <div className="card-container">
         {mydata.map((item, index) => {
           return (
-            <div key={index} className="s-wrap">
-              <div>
-                <h5>{item.name}</h5>
-                <p>{item.price}</p>
-                <p>{item.status}</p>
-                <img src={`${"./image/" + item.thumb}`} alt="product-img" />
-                <button onClick={() => getSingle(item._id)}>
-                  Read More...
-                </button>
+            <div
+              key={index}
+              className="card shadow"
+              onClick={() => getSingle(item._id)}
+            >
+              <img
+                className="item-thumbnail"
+                src={`${"./images/" + item.thumb}`}
+                alt="product-img"
+              />
+              <div className="item-details">
+                <div className="item-name">{item.name}</div>
+                <div className="price">${item.price || "Negotiation"}</div>
               </div>
             </div>
           );
@@ -81,6 +86,6 @@ export default function Products() {
           <p>{seller}</p>
         </div>
       </Modal>
-    </>
+    </div>
   );
 }
