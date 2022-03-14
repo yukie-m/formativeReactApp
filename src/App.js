@@ -1,11 +1,12 @@
-import "./App.css";
-import ListItem from "./Components/ListItem";
+import "./App.scss";
 import Products from "./Components/Products";
+import DeleteItem from "./Components/DeleteItem";
+import UserAccount from "./Components/UserAccount";
 
 function App() {
   return (
     <div className="App">
-      <Products />
+      <UserAccount />
     </div>
   );
 }
