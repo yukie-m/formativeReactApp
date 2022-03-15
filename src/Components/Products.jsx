@@ -113,7 +113,7 @@ export default function Products() {
           {(price && `$${price}`) || "Negotation"}
         </div>
 
-        <h3 class="modal-title">Details</h3>
+        <h3 className="modal-title">Details</h3>
         <hr />
         <div className="modal-details">
           {category && (
@@ -147,10 +147,10 @@ export default function Products() {
             </div>
           )}
         </div>
-        <h3 class="modal-title">Description</h3>
+        <h3 className="modal-title">Description</h3>
         <hr />
         <div className="modal-description">{description}</div>
-        <h3 class="modal-title">Seller</h3>
+        <h3 className="modal-title">Seller</h3>
         <hr />
         <div className="seller-details">
           <HiUserCircle size={72} color={"lightgray"} />
@@ -161,7 +161,7 @@ export default function Products() {
             {/* TODO: Add Stars */}
           </div>
         </div>
-        <div class="w-full">
+        <div className="w-full">
           <button className="modal-buy-btn" onClick={onBuy}>
             Buy
           </button>
