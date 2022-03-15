@@ -8,9 +8,9 @@ import ListItem from "./Components/ListItem";
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Products />
-      <ListItem />
+      
+      <UserAccount />
+      <YourSelling />
     </div>
   );
 }
