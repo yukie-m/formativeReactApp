@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { IoClose } from "react-icons/io5";
+import { HiUserCircle } from "react-icons/hi";
 
 export default function Products() {
   const [mydata, setData] = useState([]);
@@ -11,6 +13,13 @@ export default function Products() {
   const [price, setPrice] = useState("aaa");
   const [status, setStatus] = useState("jjj");
   const [thumb, setThumb] = useState("iii");
+  const [area, setArea] = useState("iii");
+  const [category, setCategory] = useState("iii");
+  const [condition, setCondition] = useState("iii");
+  const [item, setItem] = useState("iii");
+  const [collection, setCollection] = useState("iii");
+  const [size, setSize] = useState("iii");
+  const [rate, setRate] = useState("iii");
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -20,6 +29,12 @@ export default function Products() {
   function closeModal() {
     setIsOpen(false);
   }
+
+  function onBuy() {
+    // TODO: add buy functionality
+    console.log("buy");
+  }
+
   const getSingle = (id) => {
     console.log(id);
     axios
@@ -32,6 +47,13 @@ export default function Products() {
         setPrice(response.data.price);
         setStatus(response.data.status);
         setThumb(response.data.thumb);
+        setArea(response.data.area);
+        setCategory(response.data.category);
+        setItem(response.data.item);
+        setCondition(response.data.condition);
+        setCollection(response.data.collection);
+        setSize(response.data.size);
+        setRate(response.data.rate);
         setIsOpen(true);
       });
   };
@@ -43,19 +65,29 @@ export default function Products() {
   }, []);
 
   return (
-    <>
-      <div className="wrap">
+    <div className="container">
+      <h2>New Items</h2>
+      <div className="card-container">
         {mydata.map((item, index) => {
           return (
-            <div key={index} className="s-wrap">
-              <div>
-                <h5>{item.name}</h5>
-                <p>{item.price}</p>
-                <p>{item.status}</p>
-                <img src={`${"./image/" + item.thumb}`} alt="product-img" />
-                <button onClick={() => getSingle(item._id)}>
-                  Read More...
-                </button>
+            <div
+              key={index}
+              className="card shadow"
+              onClick={() => getSingle(item._id)}
+            >
+              <img
+                className="item-thumbnail"
+                src={`${"./images/" + item.thumb}`}
+                alt="product-img"
+              />
+              <div className="item-details">
+                <div>
+                  <div className="item-area">{item.area}</div>
+                  <div className="item-name">{item.name}</div>
+                </div>
+                <div className="price">
+                  {(item.price && `$${item.price}`) || "Negotation"}
+                </div>
               </div>
             </div>
           );
@@ -66,21 +98,75 @@ export default function Products() {
         onRequestClose={closeModal}
         ariaHideApp={false}
       >
-        <button onClick={closeModal}>close</button>
-        <h2 className="xxxx">Details</h2>
-        <div>
-          <h5>{name}</h5>
+        <button className="close-button" onClick={closeModal}>
+          <IoClose size={20} />
+        </button>
+        <img
+          className="modal-thumbnail"
+          src={`${"./images/" + thumb}`}
+          alt="product-img"
+        />
+        <div className="modal-status">{status}</div>
+        <div className="modal-name">{name}</div>
+        <div className="modal-price">
+          {" "}
+          {(price && `$${price}`) || "Negotation"}
         </div>
-        <div>
-          <p>{price}</p>
+
+        <h3 class="modal-title">Details</h3>
+        <hr />
+        <div className="modal-details">
+          {category && (
+            <div className="modal-detail">
+              <div className="details-label">Category</div>
+              <div className="details-text">{category}</div>
+            </div>
+          )}
+          {item && (
+            <div className="modal-detail">
+              <div className="details-label">Item</div>
+              <div className="details-text">{item}</div>
+            </div>
+          )}
+          {size && (
+            <div className="modal-detail">
+              <div className="details-label">Size</div>
+              <div className="details-text">{size}</div>
+            </div>
+          )}
+          {condition && (
+            <div className="modal-detail">
+              <div className="details-label">Condition</div>
+              <div className="details-text">{condition}</div>
+            </div>
+          )}
+          {collection && (
+            <div className="modal-detail">
+              <div className="details-label">Collection Options</div>
+              <div className="details-text">{collection}</div>
+            </div>
+          )}
         </div>
-        <div>
-          <p>{description}</p>
+        <h3 class="modal-title">Description</h3>
+        <hr />
+        <div className="modal-description">{description}</div>
+        <h3 class="modal-title">Seller</h3>
+        <hr />
+        <div className="seller-details">
+          <HiUserCircle size={72} color={"lightgray"} />
+          <div className="seller-profile">
+            <div className="modal-seller">{seller}</div>
+            <div className="modal-seller-location">{area}</div>
+            <div className="modal-seller-score">4.7</div>
+            {/* TODO: Add Stars */}
+          </div>
         </div>
-        <div>
-          <p>{seller}</p>
+        <div class="w-full">
+          <button className="modal-buy-btn" onClick={onBuy}>
+            Buy
+          </button>
         </div>
       </Modal>
-    </>
+    </div>
   );
 }
