@@ -11,6 +11,7 @@ function App() {
       <Nav />
       <Products />
       <UserAccount />
+      <ListItem />
     </div>
   );
 }
