@@ -1,12 +1,11 @@
 import "./App.scss";
 import Products from "./Components/Products";
-import DeleteItem from "./Components/DeleteItem";
-import UserAccount from "./Components/UserAccount";
+import YourSelling from "./Components/YourSelling";
 
 function App() {
   return (
     <div className="App">
-      <UserAccount />
+      <YourSelling />
     </div>
   );
 }
