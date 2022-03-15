@@ -172,3 +172,20 @@ hr {
 .flex-column {
   flex-direction: column;
 }
+
+// --- Global
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2, h3, h4 {
+  font-weight: 500;
+}
+
+p {
+  font-weight: 400;
+}
