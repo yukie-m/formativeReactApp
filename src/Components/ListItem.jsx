@@ -2,14 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useRef } from "react";
 import Modal from "react-modal";
-
-const formStyle = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "1rem",
-  width: "90%",
-  margin: "auto",
-};
+import "../styles/_listitems.scss";
+import { HiCheck } from "react-icons/hi";
 
 function ListItem() {
   const nameRef = useRef();
@@ -65,86 +59,118 @@ function ListItem() {
   };
   return (
     <div>
-      <h1>List Your Item</h1>
+      <div className="title">
+        <h1>List Your Item</h1>
+      </div>
 
-      <form onSubmit={onSubmit} style={formStyle}>
+      <form onSubmit={onSubmit} className="list-form">
         <p>
-          Seller:{" "}
-          <input type="text" placeholder="Your Name" ref={sellerRef} required />
-        </p>
-        <p>
-          Location:{" "}
-          <input type="text" placeholder="Location" ref={areaRef} required />
-        </p>
-        <p>
-          Item Name:{" "}
-          <input type="text" placeholder="Item Name" ref={nameRef} required />
-        </p>
-        <p>
-          Delivery:{" "}
+          Seller{" "}
           <input
             type="text"
-            placeholder="Collecting Way"
+            placeholder="John Smith"
+            ref={sellerRef}
+            required
+          />
+        </p>
+        <p>
+          Location{" "}
+          <input
+            type="text"
+            placeholder="Add your location..."
+            ref={areaRef}
+            required
+          />
+        </p>
+        <p>
+          Title{" "}
+          <input
+            type="text"
+            placeholder="Add title..."
+            ref={nameRef}
+            required
+          />
+        </p>
+        <p>
+          Delivery{" "}
+          <input
+            type="text"
+            placeholder="Add collection option..."
             ref={collectingRef}
             required
           />
         </p>
         <p>
-          Price:{" "}
-          <input type="number" placeholder="Price" ref={priceRef} required />
+          Price{" "}
+          <input
+            type="number"
+            placeholder="Add price..."
+            ref={priceRef}
+            required
+          />
         </p>
         <p>
-          Item: <input type="text" placeholder="item" ref={itemRef} required />
-        </p>
-        <p>
-          Category:{" "}
+          Item
           <input
             type="text"
-            placeholder="Category"
+            placeholder="Add item name..."
+            ref={itemRef}
+            required
+          />
+        </p>
+        <p>
+          Category{" "}
+          <input
+            type="text"
+            placeholder="Add category..."
             ref={categoryRef}
             required
           />
         </p>
         <p>
-          Size: <input type="text" placeholder="Size" ref={sizeRef} required />
+          Size
+          <input type="text" placeholder="Add size..." ref={sizeRef} required />
         </p>
         <p>
-          Condition:{" "}
+          Condition{" "}
           <input
             type="text"
-            placeholder="Condition"
+            placeholder="Add condition..."
             ref={conditionRef}
             required
           />
         </p>
         <p>
-          Image:{" "}
-          <input type="text" placeholder="Image" ref={thumbRef} required />
+          Image{" "}
+          <input
+            type="text"
+            placeholder="Add image name..."
+            ref={thumbRef}
+            required
+          />
         </p>
         <p>
-          Description:{" "}
+          Description{" "}
           <textarea
             name="w3review"
             rows="4"
             cols="50"
-            placeholder="Description"
+            placeholder="Add item description..."
             ref={descriptionRef}
             required
           />
         </p>
-        <button onClick={openModal} className="create-btn">
-          SUBMIT
-        </button>
+        <div className="post-button">
+          <button onClick={openModal}>Post</button>
+        </div>
       </form>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         ariaHideApp={false}
-        // className="modal-thankyou"
       >
         <button onClick={closeModal}>close</button>
-        <h1 className="xxxx">Thank you!</h1>
-        <p>You listed Item Successfully ♡</p>
+        <HiCheck size={72} color={"#fe0000"} />
       </Modal>
     </div>
   );
