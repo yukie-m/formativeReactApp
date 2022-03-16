@@ -103,12 +103,7 @@ function ListItem() {
         </p>
         <p>
           Price{" "}
-          <input
-            type="number"
-            placeholder="Add price..."
-            ref={priceRef}
-            required
-          />
+          <input type="number" placeholder="Add price..." ref={priceRef} />
         </p>
         <p>
           Item
@@ -143,12 +138,7 @@ function ListItem() {
         </p>
         <p>
           Image{" "}
-          <input
-            type="text"
-            placeholder="Add image name..."
-            ref={thumbRef}
-            required
-          />
+          <input type="text" placeholder="Add image name..." ref={thumbRef} />
         </p>
         <p>
           Description{" "}
