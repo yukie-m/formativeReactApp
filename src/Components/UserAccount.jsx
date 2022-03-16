@@ -9,7 +9,8 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { FaCommentDots } from "react-icons/fa";
 import "../styles/components.scss";
 import "../styles/account.scss";
-import { Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
+import YourSelling from "./YourSelling";
 
 function UserAccount() {
   return (
@@ -49,7 +50,7 @@ function UserAccount() {
         </li>
         <li>
           <IoSettingsOutline  className="task-icon"/>
-          <Link to="/contact-form">Contact Form</Link><p>Manage your items</p>
+          <Link to="/your-selling"><p>Manage your items</p></Link>
         </li>
         <li>
           <MdOutlineFavoriteBorder  className="task-icon"/>
@@ -60,6 +61,10 @@ function UserAccount() {
           <p>Messages</p>
         </li>
       </ul>
+      
+      <Routes>
+        <Route path="/your-selling" element={<YourSelling />} />
+      </Routes>
     </div>
   );
 }

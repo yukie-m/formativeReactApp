@@ -54,11 +54,12 @@ function ListItem() {
       .post("//localhost:4000/api/create-product", formdata)
       .then((response) => {
         console.log(response);
+        setIsOpen(true);
         console.log(response.statusText);
       });
   };
   return (
-    <div>
+    <div className="list-item-container">
       <div className="title">
         <h1>List Your Item</h1>
       </div>
@@ -161,16 +162,22 @@ function ListItem() {
           />
         </p>
         <div className="post-button">
-          <button onClick={openModal}>Post</button>
+          <button type="submit">Post</button>
         </div>
       </form>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         ariaHideApp={false}
+        // className="modal-success"
       >
-        <button onClick={closeModal}>close</button>
-        <HiCheck size={72} color={"#fe0000"} />
+        <div className="close">
+          <button onClick={closeModal}>close</button>
+        </div>
+        <div className="check-success">
+          <HiCheck size={52} color={"#fe0000"} />
+          <p>Success</p>
+        </div>
       </Modal>
     </div>
   );
