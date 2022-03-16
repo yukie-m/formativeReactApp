@@ -164,7 +164,11 @@ function ListItem() {
       >
         <div className="close">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <button onClick={closeModal}>close</button>
+=======
+          <IoIosClose size={40} color={"#6c6666"} onClick={closeModal} />
+>>>>>>> main
 =======
           <IoIosClose size={40} color={"#6c6666"} onClick={closeModal} />
 >>>>>>> main
