@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
 import { HiUserCircle } from "react-icons/hi";
+import { MdOutlineStarPurple500 } from "react-icons/md";
+import { MdOutlineStarHalf } from "react-icons/md";
 
 export default function Products() {
   const [mydata, setData] = useState([]);
@@ -66,7 +68,7 @@ export default function Products() {
 
   return (
     <div className="container">
-      <h2>New Items</h2>
+      <h1>New Items</h1>
       <div className="item-wrapper">
         <div className="card-container">
           {mydata.map((item, index) => {
@@ -175,8 +177,17 @@ export default function Products() {
           <div className="seller-profile">
             <div className="modal-seller">{seller}</div>
             <div className="modal-seller-location">{area}</div>
-            <div className="modal-seller-score">4.7</div>
-            {/* TODO: Add Stars */}
+            <div className="rating-section">
+            <div className="rate">4.7</div>
+            <div className="star">
+                <MdOutlineStarPurple500 />
+                <MdOutlineStarPurple500 />
+                <MdOutlineStarPurple500 />
+                <MdOutlineStarPurple500 />
+                <MdOutlineStarHalf />
+              </div>
+            </div>
+            
           </div>
         </div>
         <div className="w-full">
