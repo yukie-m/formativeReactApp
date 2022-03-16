@@ -30,7 +30,7 @@ export default function Products() {
     setIsOpen(false);
   }
 
-  function onBuy() {
+  function onBuy(id) {
     // TODO: add buy functionality
     console.log("buy");
   }
@@ -67,31 +67,41 @@ export default function Products() {
   return (
     <div className="container">
       <h2>New Items</h2>
-      <div className="card-container">
-        {mydata.map((item, index) => {
-          return (
-            <div
-              key={index}
-              className="card shadow"
-              onClick={() => getSingle(item._id)}
-            >
-              <img
-                className="item-thumbnail"
-                src={`${"./images/" + item.thumb}`}
-                alt="product-img"
-              />
-              <div className="item-details">
-                <div>
-                  <div className="item-area">{item.area}</div>
-                  <div className="item-name">{item.name}</div>
-                </div>
-                <div className="price">
-                  {(item.price && `$${item.price}`) || "Negotation"}
+      <div className="item-wrapper">
+        <div className="card-container">
+          {mydata.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="card shadow"
+                onClick={() => getSingle(item._id)}
+              >
+                {(item.thumb && (
+                  <img
+                    className="item-thumbnail"
+                    src={`${"./images/" + item.thumb}`}
+                    alt="product-img"
+                  />
+                )) || (
+                  <img
+                    className="item-thumbnail"
+                    src="./images/noimage.jpg"
+                    alt="no-img"
+                  />
+                )}
+                <div className="item-details">
+                  <div>
+                    <div className="item-area">{item.area}</div>
+                    <div className="item-name">{item.name}</div>
+                  </div>
+                  <div className="price">
+                    {(item.price && `$${item.price}`) || "Negotiation"}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -101,16 +111,24 @@ export default function Products() {
         <button className="close-button" onClick={closeModal}>
           <IoClose size={20} />
         </button>
-        <img
-          className="modal-thumbnail"
-          src={`${"./images/" + thumb}`}
-          alt="product-img"
-        />
+        {(thumb && (
+          <img
+            className="modal-thumbnail"
+            src={`${"./images/" + thumb}`}
+            alt="product-img"
+          />
+        )) || (
+          <img
+            className="modal-thumbnail"
+            src="./images/noimage.jpg"
+            alt="no-img"
+          />
+        )}
         <div className="modal-status">{status}</div>
         <div className="modal-name">{name}</div>
         <div className="modal-price">
           {" "}
-          {(price && `$${price}`) || "Negotation"}
+          {(price && `$${price}`) || "Negotiation"}
         </div>
 
         <h3 className="modal-title">Details</h3>

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Modal from "react-modal";
 import "../styles/_listitems.scss";
 import { HiCheck } from "react-icons/hi";
+import { IoIosClose } from "react-icons/io";
 
 function ListItem() {
   const nameRef = useRef();
@@ -103,12 +104,7 @@ function ListItem() {
         </p>
         <p>
           Price{" "}
-          <input
-            type="number"
-            placeholder="Add price..."
-            ref={priceRef}
-            required
-          />
+          <input type="number" placeholder="Add price..." ref={priceRef} />
         </p>
         <p>
           Item
@@ -143,12 +139,7 @@ function ListItem() {
         </p>
         <p>
           Image{" "}
-          <input
-            type="text"
-            placeholder="Add image name..."
-            ref={thumbRef}
-            required
-          />
+          <input type="text" placeholder="Add image name..." ref={thumbRef} />
         </p>
         <p>
           Description{" "}
@@ -172,7 +163,11 @@ function ListItem() {
         // className="modal-success"
       >
         <div className="close">
+<<<<<<< HEAD
           <button onClick={closeModal}>close</button>
+=======
+          <IoIosClose size={40} color={"#6c6666"} onClick={closeModal} />
+>>>>>>> main
         </div>
         <div className="check-success">
           <HiCheck size={52} color={"#fe0000"} />
