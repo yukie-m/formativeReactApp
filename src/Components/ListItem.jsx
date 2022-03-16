@@ -59,7 +59,7 @@ function ListItem() {
       });
   };
   return (
-    <div>
+    <div className="list-item-container">
       <div className="title">
         <h1>List Your Item</h1>
       </div>
