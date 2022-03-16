@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Modal from "react-modal";
 import "../styles/_listitems.scss";
 import { HiCheck } from "react-icons/hi";
+import { IoIosClose } from "react-icons/io";
 
 function ListItem() {
   const nameRef = useRef();
@@ -162,7 +163,7 @@ function ListItem() {
         // className="modal-success"
       >
         <div className="close">
-          <button onClick={closeModal}>close</button>
+          <IoIosClose size={40} color={"#6c6666"} onClick={closeModal} />
         </div>
         <div className="check-success">
           <HiCheck size={52} color={"#fe0000"} />
